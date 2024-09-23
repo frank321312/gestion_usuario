@@ -80,7 +80,7 @@ export class UsuarioController {
     async modificarUsuario(req: Request, res: Response) {
         try {
             const { nombre, email, usuario, pass } = req.body
-            validarDatos(email, "El email")            
+            validarDatos(email, "El email")
             validarDatos(usuario, "El usuario")
             validarDatos(pass, "La contraseña")
             const user = await buscarRegistro(Usuario, req.params.idUsuario, "usuario", "idUsuario")

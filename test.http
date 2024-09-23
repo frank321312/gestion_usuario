@@ -1,0 +1,42 @@
+### Crear rol
+POST http://localhost:4006/api/rol
+Content-Type: application/json
+{
+    "nombre": "admin"
+}
+@respuesta = {{response.body}}
+
+Respuesta:
+> @respuesta
+# ### Obtener todos los roles
+# GET http://localhost:4006/api/rol
+
+# ### Obtener un rol especifico
+# GET http://localhost:4006/api/rol/
+
+# ### Crear usuario
+# POST http://localhost:4006/api/usuario
+# Content-Type: application/json
+# {
+#     "nombre": "Juan Pérez",
+#     "email": "juan.perez@example.com",
+#     "usuario": "juanperez",
+#     "pass": "securePassword123"
+# }
+
+# ### Obtener todos los usuarios
+# GET http://localhost:4006/api/usuario
+
+# ### Obtener usuario especifico
+# GET http://localhost:4006/api/usuario/1
+
+# PUT http://localhost:4006/api/usuario/1
+# Content-Type: application/json
+# {
+#     "email": "juanperez@example.com",
+#     "usuario": "juanperez",
+#     "pass": "daskdoa12"
+# }
+
+# ### Asignar un rol a un usuario
+# POST http://localhost:4006/api/usuario/1/rol

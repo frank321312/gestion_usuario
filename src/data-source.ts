@@ -5,11 +5,13 @@ import { Rol } from "./entity/Rol.js"
 import { UsuarioRol } from "./entity/UsuarioRol.js"
 
 export const AppDataSource = new DataSource({
-    type: "postgres",
+    type: "mysql",
     host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "password",
+    port: 3306,
+    // username: "postgres",
+    // password: "password",
+    username: "root",
+    password: "Franchela12.",
     database: "gestion_usuario",
     synchronize: true,
     logging: false,

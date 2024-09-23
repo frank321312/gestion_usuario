@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
-import { validarDatos } from "../functions/usuarioFunc.js";
+import { buscarRegistro, validarDatos } from "../functions/usuarioFunc.js";
 import { AppDataSource } from "../data-source.js";
 import { Rol } from "../entity/Rol.js";
+import { Usuario } from "../entity/Usuario.js";
+import { UsuarioRol } from "../entity/UsuarioRol.js";
 
 export class RolController {
     async crearRol(req: Request, res: Response) {

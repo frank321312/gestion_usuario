@@ -2,7 +2,7 @@ import { Router } from "express"
 import { UsuarioController } from "../controllers/usuarioController.js"
 
 const router = Router()
-const usuarioController = new UsuarioController()
+export const usuarioController = new UsuarioController()
 
 router.post("/usuario", usuarioController.crearUsuario)
 router.post("/usuario/:idUsuario/rol/:idRol", usuarioController.asignarRolUsuario)
