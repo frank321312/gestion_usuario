@@ -15,6 +15,6 @@ router.get("/rol/:idRol", rolController.obtenerRol);
 router.put("/rol/:idRol", rolController.modificarRol);
 
 router.delete("/rol/:idRol", rolController.eliminarRol);
-router.delete("/rol/:idRol/usuario/:idUsuario", usuarioController.eliminarUsuario)
+router.delete("/rol/:idRol/usuario/:idUsuario", usuarioController.quitarRolUsuario)
 
 export default router;

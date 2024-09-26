@@ -21,7 +21,7 @@ export class UsuarioController {
                 .values({
                     ...req.body,
                     fechaCreacion: new Date(),
-                    habilitado: false
+                    habilitado: true
                 }).execute()
 
             res.status(201).json({ message: "Usuario creado", idUsuario: data.generatedMaps[0].idUsuario })

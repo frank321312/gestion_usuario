@@ -16,7 +16,7 @@ export class RolController {
                 .into(Rol)
                 .values({
                     ...req.body,
-                    habilitado: false,
+                    habilitado: true,
                     fechaCreacion: new Date()
                 }).execute()
 
@@ -61,12 +61,12 @@ export class RolController {
         try {
             const { idRol } = req.params
             const data = await AppDataSource.getRepository(Rol).find({ where: { idRol: idRol } })
-            const rolname = !req.body.nombre && data[0].nombre
+            const rolName = !req.body.nombre && data[0].nombre
             if (data.length == 0) {
                 return res.status(404).json({ message: "Rol no encontrado" })
             }
 
-            if (data[0].nombre != rolname) {
+            if (data[0].nombre != rolName) {
                 return res.status(400).json({ message: "El nombre no puede ser modificado" })
             }
 

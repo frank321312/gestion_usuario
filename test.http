@@ -1,42 +1,64 @@
+@Api_HostAddress = http://localhost:4006
+
 ### Crear rol
-POST http://localhost:4006/api/rol
+POST {{Api_HostAddress}}/api/rol
 Content-Type: application/json
 {
     "nombre": "admin"
 }
-@respuesta = {{response.body}}
 
-Respuesta:
-> @respuesta
-# ### Obtener todos los roles
-# GET http://localhost:4006/api/rol
+### Modificar rol
+PUT {{Api_HostAddress}}/api/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d
+Content-Type: application/json
+{
+    "habilitado": false
+}
 
-# ### Obtener un rol especifico
-# GET http://localhost:4006/api/rol/
+### Obtener todos los roles
+GET {{Api_HostAddress}}/api/rol
 
-# ### Crear usuario
-# POST http://localhost:4006/api/usuario
-# Content-Type: application/json
-# {
-#     "nombre": "Juan Pérez",
-#     "email": "juan.perez@example.com",
-#     "usuario": "juanperez",
-#     "pass": "securePassword123"
-# }
+### Obtener un rol específico
+GET {{Api_HostAddress}}/api/rol/a9f86a17-16e3-4f65-9ddf-2d0bd933341d
 
-# ### Obtener todos los usuarios
-# GET http://localhost:4006/api/usuario
+### Crear usuario
+POST {{Api_HostAddress}}/api/usuario
+Content-Type: application/json
+{
+    "nombre": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "usuario": "juanperez",
+    "pass": "securePassword123"
+}
 
-# ### Obtener usuario especifico
-# GET http://localhost:4006/api/usuario/1
+### Obtener todos los usuarios
+GET {{Api_HostAddress}}/api/usuario
 
-# PUT http://localhost:4006/api/usuario/1
-# Content-Type: application/json
-# {
-#     "email": "juanperez@example.com",
-#     "usuario": "juanperez",
-#     "pass": "daskdoa12"
-# }
+### Obtener usuario específico
+GET {{Api_HostAddress}}/api/usuario/1
 
-# ### Asignar un rol a un usuario
-# POST http://localhost:4006/api/usuario/1/rol
+### Actualizar un usuario específico
+PUT {{Api_HostAddress}}/api/usuario/1
+Content-Type: application/json
+{
+    "email": "juan.perezsegundo@example.com",
+    "usuario": "juanperez12",
+    "pass": "daskdoa12"
+}
+
+### Asignar un rol a un usuario desde el controller Usuario
+POST {{Api_HostAddress}}/api/usuario/1/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d
+
+### Quitar un rol a un usuario desde el controller Usuario
+DELETE {{Api_HostAddress}}/api/usuario/1/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d
+
+### Asignar un usuario a un rol desde el controller Rol
+POST {{Api_HostAddress}}/api/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d/usuario/1
+
+### Quitar un usuario a un rol desde el controller Rol
+DELETE {{Api_HostAddress}}/api/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d/usuario/1
+
+### Eliminar rol
+DELETE {{Api_HostAddress}}/api/rol/a5f86a17-16e3-4f65-9ddf-2d0bd933341d
+
+### Eliminar usuario
+DELETE {{Api_HostAddress}}/api/usuario/1
