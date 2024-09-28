@@ -1,5 +1,5 @@
 import { AppDataSource } from "./data-source.js"
-import express from 'express'
+import express, { Request, Response } from 'express'
 import usuarioRouter from './routes/usuarioRoutes.js'
 import rolRouter from "./routes/rolRoutes.js"
 import { Rol } from "./entity/Rol.js"
@@ -48,6 +48,10 @@ const PORT = process.env.PORT || 4006
 
 app.use("/api", usuarioRouter)
 app.use("/api", rolRouter)
+
+app.get("/", (_req: Request, res: Response) => {
+    res.status(200).send("Hello world")
+})
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`)
