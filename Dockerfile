@@ -1,7 +1,7 @@
 FROM node:20
-WORKDIR /gestion_usuario
+WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
 RUN npm install
-CMD ["node", "src/index.js"]
+CMD ["npm", "start"]
 EXPOSE 4006
