@@ -5,6 +5,13 @@ import { Rol } from "../entity/Rol.js";
 import { Usuario } from "../entity/Usuario.js";
 import { UsuarioRol } from "../entity/UsuarioRol.js";
 
+interface IRol {
+    crearRol(req: Request, res: Response): Promise<void>;
+    obtenerRoles(req: Request, res: Response): Promise<Response<any, Record<string, string | number>>>
+    obtenerRol(req: Request, res: Response): Promise<Response<any, Record<string, any>>>
+    modificarRol(req: Request, res: Response): Promise<void>;
+    eliminarRol(req: Request, res: Response): Promise<void>;}
+
 export class RolController {
     async crearRol(req: Request, res: Response) {
         try {
@@ -31,13 +38,13 @@ export class RolController {
         }
     }
 
-    async obtenerRoles(req: Request, res: Response) {
+    async obtenerRoles(req: Request, res: Response): Promise<Response<Rol[], Record<string, any>>> {
         try {
             const data = await AppDataSource.getRepository(Rol).find()
-            res.status(200).json({ roles: data })
+            return res.status(200).json({ roles: data })
         } catch (error) {
             console.log(error)
-            res.status(500).json({ message: "No se puedieron obtener los roles" })
+            return res.status(500).json({ message: "No se puedieron obtener los roles" })
         }
     }
 
